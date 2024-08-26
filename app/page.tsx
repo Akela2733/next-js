@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import MapFilterItems from "./components/MapFilterItems";
+import { MapFilterItems } from "./components/MapFilterItems";
 
 
 
