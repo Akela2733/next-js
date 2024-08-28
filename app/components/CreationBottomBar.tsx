@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { Link } from "lucide-react"
+import Link from "next/link"
 import { CreationSubmit } from "@/components/ui/submitButtons"
 
 export function CreationBottomBar(){
