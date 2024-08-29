@@ -91,8 +91,7 @@ async function ShowItems({
     <>
       {data.length === 0 ? (
         <NoItems
-          description="Please check a other category or create your own listing!"
-          title="Sorry no listings found for this category..."
+          title="Hey You don't have any favorites" description="please add favorite to see more right here"
         />
       ) : (
         <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">

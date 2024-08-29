@@ -1,9 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCountries } from "../lib/getCountries";
-// import { AddToFavoriteButton, DeleteFromFavoriteButton } from "./SubmitButtons";
-// import { DeleteFromFavorite, addToFavorite } from "../actions";
-
+import { AddFavouriteButton,DeleteFromFavoriteButton } from "@/components/ui/submitButtons";
+import { DeleteFromFavorite,addToFavorite } from "../actions";
 interface iAppProps {
   imagePath: string;
   description: string;
@@ -40,7 +39,7 @@ export function ListingCard({
           className="rounded-lg h-full object-cover"
         />
 
-        {/* {userId && (
+        {userId && (
           <div className="z-10 absolute top-2 right-2">
             {isInFavoriteList ? (
               <form action={DeleteFromFavorite}>
@@ -54,11 +53,11 @@ export function ListingCard({
                 <input type="hidden" name="homeId" value={homeId} />
                 <input type="hidden" name="userId" value={userId} />
                 <input type="hidden" name="pathName" value={pathName} />
-                <AddToFavoriteButton />
+                <AddFavouriteButton />
               </form>
             )}
           </div>
-        )} */}
+        )}  
       </div>
 
       <Link href={`/home/${homeId}`} className="mt-2">
