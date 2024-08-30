@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+   "build": "next build && prisma generate",
+  "dev": "next dev",
+  "start": "next start",
+  "lint": "next lint",
+  "prisma:generate": "prisma generate"
   },
   "dependencies": {
     "@kinde-oss/kinde-auth-nextjs": "^2.3.6",
@@ -29,6 +30,7 @@
     "react-leaflet": "^4.2.1",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
+    "twemoji": "^14.0.2",
     "world-countries": "^5.0.0"
   },
   "devDependencies": {

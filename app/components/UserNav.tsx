@@ -34,7 +34,7 @@ export async function UserNav() {
               user?.picture ??
               "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
             }
-            alt="Image of the user"
+            alt=""
             className="rounded-full h-8 w-8 hidden lg:block"
           />
         </div>

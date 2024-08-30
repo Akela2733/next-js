@@ -1,11 +1,10 @@
-import { Label } from "@radix-ui/react-dropdown-menu";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Card } from "@/components/ui/card";
-import { CardHeader } from "@/components/ui/card";
-import { Counter } from "@/app/components/Counter";
 import { CreateDescription } from "@/app/actions";
+import { Counter } from "@/app/components/Counter";
 import { CreationBottomBar } from "@/app/components/CreationBottomBar";
+import { Card, CardHeader } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function DescriptionPage({
   params,
@@ -16,7 +15,7 @@ export default function DescriptionPage({
     <>
       <div className="w-3/5 mx-auto">
         <h2 className="text-3xl font-semibold tracking-tight transition-colors">
-          please describe your home as good as you can
+          Please describe your home as good as you can!
         </h2>
       </div>
 
@@ -29,15 +28,15 @@ export default function DescriptionPage({
               name="title"
               type="text"
               required
-              placeholder="short and simple..."
+              placeholder="Short and simple..."
             />
           </div>
           <div className="flex flex-col gap-y-2">
-            <Label>Description</Label>
+            <Label>Descrption</Label>
             <Textarea
               name="description"
               required
-              placeholder="Plaese describe your Home.."
+              placeholder="Please describe your home..."
             />
           </div>
 
@@ -54,43 +53,45 @@ export default function DescriptionPage({
 
           <div className="flex flex-col gap-y-2">
             <Label>Image</Label>
-            <Input name="image" type="file" required placeholder="required" />
+            <Input name="image" type="file" required />
           </div>
 
           <Card>
             <CardHeader className="flex flex-col gap-y-5">
-              <div className="flex items-center justify-between"></div>
-              <div className="flex flex-col">
-                <h3 className="underline font-medium ">Guests</h3>
-                <p className="text-muted -foreground text-sm">
-                  How many Guests do you want
-                </p>
+              <div className="flex items-center justify-between">
+                <div className="flex flex-col">
+                  <h3 className="underline font-medium">Guests</h3>
+                  <p className="text-muted-foreground text-sm">
+                    How many guests do you want?
+                  </p>
+                </div>
+
+                <Counter name="guest" />
               </div>
+              <div className="flex items-center justify-between">
+                <div className="flex flex-col">
+                  <h3 className="underline font-medium">Rooms</h3>
+                  <p className="text-muted-foreground text-sm">
+                    How many rooms do you have?
+                  </p>
+                </div>
 
-              <Counter name="guest" />
-
-              <div className="flex items-center justify-between"></div>
-              <div className="flex flex-col">
-                <h3 className="underline font-medium ">Rooms </h3>
-                <p className="text-muted -foreground text-sm">
-                  How many Rooms do you have?
-                </p>
+                <Counter name="room" />
               </div>
+              <div className="flex items-center justify-between">
+                <div className="flex flex-col">
+                  <h3 className="underline font-medium">Bathrooms</h3>
+                  <p className="text-muted-foreground text-sm">
+                    How many bathrooms do you have?
+                  </p>
+                </div>
 
-              <Counter name="room" />
-
-              <div className="flex items-center justify-between"></div>
-              <div className="flex flex-col">
-                <h3 className="underline font-medium ">Bathrooms</h3>
-                <p className="text-muted -foreground text-sm">
-                  How many Bathrooms do you have?
-                </p>
+                <Counter name="bathroom" />
               </div>
-
-              <Counter name="bathroom" />
             </CardHeader>
           </Card>
         </div>
+
         <CreationBottomBar />
       </form>
     </>

@@ -8,6 +8,7 @@ import { ListingCard } from "./components/ListingCard";
 import { unstable_noStore as noStore } from "next/cache";
 import { NoItems } from "./components/NoItems";
 
+
 async function getData({
   searchParams,
   userId,
@@ -89,6 +90,7 @@ async function ShowItems({
 
   return (
     <>
+    <div className="mb-10">
       {data.length === 0 ? (
         <NoItems
           title="Hey You don't have any favorites" description="please add favorite to see more right here"
@@ -111,6 +113,7 @@ async function ShowItems({
           ))}
         </div>
       )}
+      </div>
     </>
   );
 }
