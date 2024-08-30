@@ -1,10 +1,8 @@
-// import { createCategoryPage } from "@/app/actions";
-// import { CreatioBottomBar } from "@/app/components/CreationBottomBar";
-
-import { SelctetCategory } from "@/app/components/SelectedCategory";
 import { createCategoryPage } from "@/app/actions";
 import { CreationBottomBar } from "@/app/components/CreationBottomBar";
-export default function StructureRoute({ params }: { params: { id: string } }) {
+import { SelctetCategory } from "@/app/components/SelectedCategory";
+
+export default function StrucutreRoute({ params }: { params: { id: string } }) {
   return (
     <>
       <div className="w-3/5 mx-auto">
@@ -14,10 +12,10 @@ export default function StructureRoute({ params }: { params: { id: string } }) {
       </div>
 
       <form action={createCategoryPage}>
-        <input type="hiden" name="homeId" value={params.id}/>
+        <input type="hidden" name="homeId" value={params.id} />
         <SelctetCategory />
-        <CreationBottomBar />
 
+        <CreationBottomBar />
       </form>
     </>
   );
