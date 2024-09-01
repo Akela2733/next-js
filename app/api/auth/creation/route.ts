@@ -32,5 +32,5 @@ export async function GET() {
     });
   }
 
-  return NextResponse.redirect("http://localhost:3000");
+  return NextResponse.redirect("https://next-lkfc7k9fa-akela2733s-projects.vercel.app/");
 }
