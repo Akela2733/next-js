@@ -4,7 +4,6 @@ import { redirect } from "next/navigation";
 import prisma from "./lib/db";
 import { supabase } from "./lib/superbase";
 import { revalidatePath } from "next/cache";
-import path from "path";
 
 export async function createAirbnbHome({ userId }: { userId: string }) {
   const data = await prisma.home.findFirst({
@@ -17,39 +16,27 @@ export async function createAirbnbHome({ userId }: { userId: string }) {
   });
 
   if (data === null) {
-    const data = await prisma.home.create({
+    const newData = await prisma.home.create({
       data: {
         userId: userId,
       },
     });
 
-    return redirect(`/create/${data.id}/structure`);
-  } else if (
-    !data.addedCategory &&
-    !data.addedDescription &&
-    !data.addedLocation
-  ) {
+    return redirect(`/create/${newData.id}/structure`);
+  } else if (!data.addedCategory && !data.addedDescription && !data.addedLocation) {
     return redirect(`/create/${data.id}/structure`);
   } else if (data.addedCategory && !data.addedDescription) {
-    return redirect(`/create/${data.id}/description`);
-  } else if (
-    data.addedCategory &&
-    data.addedDescription &&
-    !data.addedLocation
-  ) {
+    return redirect(`/create/${data.id}/structure`);
+  } else if (data.addedCategory && data.addedDescription && !data.addedLocation) {
     return redirect(`/create/${data.id}/address`);
-  } else if (
-    data.addedCategory &&
-    data.addedDescription &&
-    data.addedLocation
-  ) {
-    const data = await prisma.home.create({
+  } else if (data.addedCategory && data.addedDescription && data.addedLocation) {
+    const newData = await prisma.home.create({
       data: {
         userId: userId,
       },
     });
 
-    return redirect(`/create/${data.id}/structure`);
+    return redirect(`/create/${newData.id}/structure`);
   }
 }
 

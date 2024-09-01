@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -55,7 +52,7 @@ model Favorite {
   Home   Home?   @relation(fields: [homeId], references: [id])
   homeId String?
 
-  createAt DateTime @default(now())
+  createdAt DateTime @default(now())
 }
 
 model Reservation {
