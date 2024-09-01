@@ -3,11 +3,10 @@ import { Suspense, use } from "react";
 import { MapFilterItems } from "./components/MapFilterItems";
 import prisma from "./lib/db";
 import { SkeltonCard } from "./components/SkeletonCard";
+import { NoItems } from "./components/NoItems";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { ListingCard } from "./components/ListingCard";
 import { unstable_noStore as noStore } from "next/cache";
-import { NoItems } from "./components/NoItems";
-
 
 async function getData({
   searchParams,
@@ -90,10 +89,10 @@ async function ShowItems({
 
   return (
     <>
-    <div className="mb-10">
       {data.length === 0 ? (
         <NoItems
-          title="Hey You don't have any favorites" description="please add favorite to see more right here"
+          description="Please check a other category or create your own listing!"
+          title="Sorry no listings found for this category..."
         />
       ) : (
         <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
@@ -113,7 +112,6 @@ async function ShowItems({
           ))}
         </div>
       )}
-      </div>
     </>
   );
 }

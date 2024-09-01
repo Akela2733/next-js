@@ -1,4 +1,4 @@
-import { CreateReservation } from "@/app/actions";
+import { createReservation } from "@/app/actions";
 import { CaegoryShowcase } from "@/app/components/CategoryShowcase";
 import { HomeMap } from "@/app/components/HomeMap";
 import { SelectCalender } from "@/app/components/selectCalender";
@@ -8,7 +8,6 @@ import { useCountries } from "@/app/lib/getCountries";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-
 import Image from "next/image";
 import Link from "next/link";
 import { unstable_noStore as noStore } from "next/cache";
@@ -107,7 +106,7 @@ export default async function HomeRoute({
           <HomeMap locationValue={country?.value as string} />
         </div>
 
-        <form action={CreateReservation}>
+        <form action={createReservation}>
           <input type="hidden" name="homeId" value={params.id} />
           <input type="hidden" name="userId" value={user?.id} />
 
