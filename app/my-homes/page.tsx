@@ -3,7 +3,7 @@ import prisma from "../lib/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { ListingCard } from "../components/ListingCard";
 import { redirect } from "next/navigation";
-import {unstable_noStore as noStore} from "next/cache"
+import { unstable_noStore as noStore } from "next/cache";
 
 async function getData(userId: string) {
   noStore();
@@ -44,7 +44,7 @@ export default async function MyHomes() {
   const data = await getData(user.id);
   return (
     <section className="container mx-auto px-5 lg:px-10 mt-10">
-      <h2 className="text-3xl fonct-semibold tracking-tight">Your Homes</h2>
+      <h2 className="text-3xl font-semibold tracking-tight">Your Homes</h2>
       {data.length === 0 ? (
         <NoItems
           description="Please list a home on airbnb so that you can see it right here"
