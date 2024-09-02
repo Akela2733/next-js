@@ -32,5 +32,5 @@ export async function GET() {
     });
   }
 
-  return NextResponse.redirect("https://next-js-ake6.vercel.app/");
+  return NextResponse.redirect("https://next-js-ake6.vercel.app");
 }
