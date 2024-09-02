@@ -66,3 +66,7 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
+.main-content {
+  padding-top: 80px; /* Adjust this based on your navbar height */
+}
