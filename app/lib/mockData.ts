@@ -175,6 +175,6 @@ export function getHomesData(filters?: {
     price: home.price,
     description: home.description,
     country: home.country,
-    Favorite: [],
+    Favorite: [{ id: "" }],
   }));
 }
