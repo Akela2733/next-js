@@ -16,12 +16,19 @@ import Link from "next/link";
 import { createAirbnbHome } from "../actions";
 
 export async function UserNav() {
-  const { getUser } = getKindeServerSession();
-  const user = await getUser();
+  let user = null;
+  
+  try {
+    const { getUser } = getKindeServerSession();
+    user = await getUser();
+  } catch (error) {
+    // Silently handle auth errors - user will just see login option
+    console.error("Auth error:", error);
+  }
 
-  const createHomewithId = createAirbnbHome.bind(null, {
-    userId: user?.id as string,
-  });
+  const createHomewithId = user
+    ? createAirbnbHome.bind(null, { userId: user.id as string })
+    : null;
 
   return (
     <DropdownMenu>
@@ -42,13 +49,15 @@ export async function UserNav() {
       <DropdownMenuContent align="end" className="w-[200px]">
         {user ? (
           <>
-            <DropdownMenuItem>
-              <form action={createHomewithId} className="w-full">
-                <button type="submit" className="w-full text-start">
-                  Airbnb your Home
-                </button>
-              </form>
-            </DropdownMenuItem>
+            {createHomewithId && (
+              <DropdownMenuItem>
+                <form action={createHomewithId} className="w-full">
+                  <button type="submit" className="w-full text-start">
+                    Airbnb your Home
+                  </button>
+                </form>
+              </DropdownMenuItem>
+            )}
             <DropdownMenuItem>
               <Link href="/my-homes" className="w-full">
                 My Listings
