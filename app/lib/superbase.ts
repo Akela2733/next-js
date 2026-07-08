@@ -1,7 +1,11 @@
 import { createClient } from "@supabase/supabase-js";
 
-
-export const supabase = createClient(
-  process.env.SUPABASE_URL as string,
-  process.env.SUPABASE_ANON_KEY as string
-);
+// Note: Supabase client disabled for frontend-only app
+// Can be re-enabled when backend is ready
+export const supabase = {
+  storage: {
+    from: () => ({
+      upload: async () => ({ data: { path: "" } }),
+    }),
+  },
+} as any;
